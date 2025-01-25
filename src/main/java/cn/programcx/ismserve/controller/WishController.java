@@ -26,5 +26,29 @@ public class WishController {
        return wish;
    }
 
+   @PutMapping("/update")
+    public Wishes updateWish(@RequestBody Wishes wish) {
+       wishService.updateWishes(wish);
+       return wish;
+   }
+
+   @GetMapping("/get-wish")
+    public Wishes getWish(@RequestParam("name") String name) {
+        return wishService.getWishes(name);
+    }
+
+    @PostMapping("/add-love")
+    public void addLove(@RequestParam String name) {
+        System.out.println("add"+name);
+       wishService.addLove(name);
+    }
+
+    @PostMapping("/remove-love")
+    public void removeLove(@RequestBody String name) {
+        wishService.removeLove(name);
+    }
+
+
+
 
 }

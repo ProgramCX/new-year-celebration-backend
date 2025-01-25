@@ -4,6 +4,7 @@ public class Wishes {
     private int id;
     private String content;
     private String name;
+    private long loves;
 
     public int getId() {
         return id;
@@ -27,5 +28,11 @@ public class Wishes {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public long getLoves() {
+        return loves;
+    }
+    public void setLoves(long loves) {
+        this.loves = loves;
     }
 }

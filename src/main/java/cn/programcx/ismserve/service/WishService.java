@@ -21,4 +21,20 @@ public class WishService {
     public void insertWishes(Wishes wishes) {
         wishesMapper.insert(wishes);
     }
+
+    public void updateWishes(Wishes wishes) {
+        wishesMapper.update(wishes);
+    }
+
+    public Wishes getWishes(String name) {
+        return wishesMapper.findByString(name);
+    }
+
+    public void removeLove(String name) {
+        wishesMapper.removeLove(name);
+    }
+
+    public void addLove(String name) {
+        wishesMapper.addLove(name);
+    }
 }

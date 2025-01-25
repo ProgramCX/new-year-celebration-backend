@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.programcx.ismserve.mapper.WishesMapper">
-    
+
     <!--查询所有愿望-->
     <select id="findAllWishes" resultType="java.util.List">
         select * from wish
@@ -12,4 +12,26 @@
     <insert id="insertWish" parameterType="cn.programcx.ismserve.model.Wishes">
         insert into wish(content,name) values (#{content},#{name})
     </insert>
+
+    <!--更新愿望-->
+    <update id="updateWish" parameterType="cn.programcx.ismserve.model.Wishes">
+        update wish
+        set content=#{content}
+        where name=#{name}
+    </update>
+
+    <!--获取愿望-->
+    <select id="getWishByName" parameterType="String" resultType="cn.programcx.ismserve.model.Wishes">
+        select * from wish where name=#{id}
+    </select>
+
+    <!--增加点赞-->
+    <update id="addLoveByName" parameterType="String">
+        update wish set loves=loves+1 where name=#{id}
+    </update>
+
+    <!--减少点赞-->
+    <update id="reduceLoveByName" parameterType="String">
+        update wish set loves=loves-1 where name=#{id}
+    </update>
 </mapper>
