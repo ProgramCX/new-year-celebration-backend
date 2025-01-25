@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.programcx.ismserve.mapper.WishesMapper">
+    
+    <!--查询所有愿望-->
+    <select id="findAllWishes" resultType="java.util.List">
+        select * from wish
+    </select>
+
+    <!--许愿-->
+    <insert id="insertWish" parameterType="cn.programcx.ismserve.model.Wishes">
+        insert into wish(content,name) values (#{content},#{name})
+    </insert>
+</mapper>
